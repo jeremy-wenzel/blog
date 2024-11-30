@@ -1,0 +1,22 @@
+:root {
+  --primary: #bf5700;
+  --text: #f3f3f3;
+  --main: #2c2c2c;
+  --link: #00ff00;
+  --hover: #bf5700;
+}
+
+body {
+  color: var(--text);
+  background: var(--main);
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover);
+  text-decoration: underline;
+}
