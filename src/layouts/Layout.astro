@@ -1,5 +1,6 @@
 ---
 import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.tsx";
 import "../styles/global.css";
 ---
 
@@ -8,9 +9,9 @@ import "../styles/global.css";
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>English Crusade</title>
 		<link
 			rel="stylesheet"
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -19,9 +20,12 @@ import "../styles/global.css";
 		/>
 	</head>
 	<body>
-		<div class="container">
+		<div class="container main-container">
 			<Navigation />
-			<slot />
+			<div class="content-wrap">
+				<slot />
+			</div>
 		</div>
+		<Footer />
 	</body>
 </html>

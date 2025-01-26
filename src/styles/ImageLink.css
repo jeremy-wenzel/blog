@@ -1,0 +1,9 @@
+.imageLink {
+  width: 48px;
+  height: 48px;
+  filter: invert(33%) sepia(37%) saturate(4701%) hue-rotate(22deg) brightness(93%) contrast(101%);
+}
+
+.first-link {
+  padding-right: 10px;
+}
