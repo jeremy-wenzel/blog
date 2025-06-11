@@ -1,5 +1,6 @@
 ---
 import Layout from "./Layout.astro";
+const { frontmatter } = Astro.props;
 
 // TODOs
 // * add title
@@ -9,6 +10,8 @@ import Layout from "./Layout.astro";
 // ----- https://docs.astro.build/en/guides/syntax-highlighting/
 ---
 
-<Layout>
+<Layout pageTitle={frontmatter.title}>
+  <h1 class="center-text">{frontmatter.title}</h1>
+  <p class="italic-text center-text">{frontmatter.date}</p>
   <slot />
 </Layout>

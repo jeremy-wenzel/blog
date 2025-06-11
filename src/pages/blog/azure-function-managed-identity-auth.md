@@ -1,6 +1,7 @@
 ---
 layout: ../../layouts/PostLayout.astro
 title: 'Azure Function HTTP authentication with Managed Identities'
+date: 'Jan 27, 2024'
 ---
 
 One problem I ran into at my job was to create an Azure App Service that could authenticate with an Azure Function.
@@ -220,6 +221,8 @@ Apparently, when a System Managed Identity is created, it creates an Enterprise 
 Now all you need to do is collect the "Application ID". This is the client ID that you can use in the allowed client applications in the azure function.
 
 Go back to the Azure Function authentication landing and edit the Microsoft Identity Provider. Under "Allowed client applications" set the GUID that you got from the Enterprise Application ID.
+
+![Allow client application](./img/AllowingClientApplication.png)
 
 ### Authenticating with code
 

@@ -32,7 +32,21 @@ a:hover {
   position: relative;
 }
 
-.content-wrap
-{
+.content-wrap {
   padding-bottom: 2.5rem;
+}
+
+.italic-text {
+  font-style: italic;
+}
+
+.center-text {
+  text-align: center;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 2rem auto;
 }
