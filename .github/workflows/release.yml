@@ -17,6 +17,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Generate release tag
+        id: tag
+        run: echo "tag=build-$(date -u +'%Y%m%d%H%M%S')" >> "$GITHUB_OUTPUT"
+
+      - name: Write version.txt
+        run: echo "${{ steps.tag.outputs.tag }}" > public/version.txt
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -39,10 +46,6 @@ jobs:
         run: |
           sha256sum blog-dist.zip > blog-dist.zip.sha256
           cat blog-dist.zip.sha256
-
-      - name: Generate release tag
-        id: tag
-        run: echo "tag=build-$(date -u +'%Y%m%d%H%M%S')" >> "$GITHUB_OUTPUT"
 
       - name: Create GitHub release
         uses: softprops/action-gh-release@v2

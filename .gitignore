@@ -1,6 +1,9 @@
 # build output
 dist/
 
+# generated at CI build time
+public/version.txt
+
 # generated types
 .astro/
 
