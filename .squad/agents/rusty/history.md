@@ -15,3 +15,6 @@
 ## Work Log
 
 **2026-05-15T22:02:56Z:** Posts index audit completed. Reviewed posts page readability and layout with focus on scanability, metadata hierarchy, grouping, and terminal-modern styling ideas.
+
+**2026-05-15T22:05:51Z (Rusty):** Design direction decision recorded to squad decisions. Recommendation of Direction C (Hybrid Modern Terminal) now part of team governance. Awaiting Jeremy's approval and Danny's spec authoring to begin implementation work. Design spec will detail component breakdown, color/spacing tokens, and code block examples once direction is confirmed.
+
