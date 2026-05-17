@@ -27,6 +27,21 @@
 **What:** Bracket-prefixed blockquotes deferred to future enhancement; left border styling (2px solid #bf5700) included in Progressive Polish scope.
 **Why:** Progressive Polish prioritizes low-risk, high-impact improvements; bracket prefix requires content author coordination and is optional polish.
 
+### 2026-05-15T15:41:11.914-07:00: Plan Revision - Blog Reading Experience (Single Implementer)
+**By:** Rusty (Frontend Dev)
+**What:** Updated the blog reading experience implementation plan to be executable by a single sequential implementer with 5 phases: Pre-Phase (Frontmatter schema normalization), Phase 1 (Metadata & layout foundation), Phase 2 (Typography & styling), Phase 3 (Footer sticky positioning), Phase 4 (Post breadcrumb & spacing), Phase 5 (QA & validation). Total: 11 logical steps, 9 code commits.
+**Why:** Single-implementer focus provides clear linear workflow; Pre-Phase unblocks downstream work; footer work isolated for independent validation; test discipline and commit discipline ensure clean history.
+
+### 2026-05-15T19:19:50.476-07:00: Footer Spec Alignment
+**By:** Rusty (Frontend Dev)
+**What:** Final footer slice aligned to approved spec: `.site-footer` must use `position: sticky`, `bottom: 0`, `z-index: 10`, `background: var(--main)`, and `border-top: 1px solid #555`.
+**Why:** Closes footer review gap without reopening reading/listing work; targeted footer test protects exact contract approved by team.
+
+### 2026-05-17T09:48:04.314-07:00: Vertical Blog Listing
+**By:** Rusty (Frontend Dev)
+**What:** Use single-column `.blog-card-list` for both home page (capped at 10 newest posts) and `/blog/` archive listing.
+**Why:** Vertical scan aligns with editorial/terminal aesthetic; gives each card more room for title + excerpt; prevents home page from feeling dense.
+
 ## Governance
 
 - All meaningful changes require team consensus
