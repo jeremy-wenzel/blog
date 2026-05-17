@@ -9,6 +9,7 @@ public/version.txt
 
 # dependencies
 node_modules/
+.test-builds/
 
 # logs
 npm-debug.log*

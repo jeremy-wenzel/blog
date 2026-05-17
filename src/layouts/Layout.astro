@@ -24,11 +24,13 @@ if (pageTitle === null || pageTitle === undefined) {
 			crossorigin="anonymous"
 		/>
 	</head>
-	<body>
-		<div class="container main-container">
-			<Navigation />
-			<div class="content-wrap">
-				<slot />
+	<body class="page-shell">
+		<div class="page-shell__main">
+			<div class="container main-container">
+				<Navigation />
+				<main class="content-wrap">
+					<slot />
+				</main>
 			</div>
 		</div>
 		<Footer />

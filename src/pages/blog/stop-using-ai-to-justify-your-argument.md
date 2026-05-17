@@ -1,6 +1,7 @@
 ---
 layout: ../../layouts/PostLayout.astro
 title: '"Copilot Said So" Is Not an Answer'
+date: "Apr 6, 2026"
 ---
 
 > In a code review for a component.

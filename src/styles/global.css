@@ -1,14 +1,38 @@
 :root {
   --primary: #bf5700;
   --text: #f3f3f3;
+  --text-rgb: 243, 243, 243;
   --main: #2c2c2c;
   --link: #00ff00;
   --hover: #bf5700;
+  --surface-border-subtle: rgba(var(--text-rgb), 0.12);
+  --text-muted: rgba(var(--text-rgb), 0.75);
+  --text-soft: rgba(var(--text-rgb), 0.85);
+  --surface-code-inline: rgba(var(--text-rgb), 0.08);
 }
 
 body {
   color: var(--text);
   background: var(--main);
+  font-family: ui-monospace, "SF Mono", "Monaco", "Courier New", monospace;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+body.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  letter-spacing: normal;
 }
 
 a {
@@ -26,14 +50,126 @@ a:hover {
   padding: 10px;
 }
 
+.page-shell__main {
+  flex: 1;
+  display: flex;
+}
 
 .main-container {
-  min-height: 97vh;
-  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 .content-wrap {
-  padding-bottom: 2.5rem;
+  flex: 1;
+  padding: 1.5rem 0 3rem;
+}
+
+.blog-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-card-list__item {
+  width: 100%;
+}
+
+.blog-card-list__item > * {
+  width: 100%;
+}
+
+.post-article {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+.post-breadcrumb {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.post-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--surface-border-subtle);
+}
+
+.post-title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+}
+
+.post-date {
+  margin: 0.75rem 0 0;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.post-content > :first-child {
+  margin-top: 0;
+}
+
+.post-content > * + * {
+  margin-top: 2rem;
+}
+
+.post-content p {
+  margin: 0 0 1.5rem;
+}
+
+.post-content ul,
+.post-content ol {
+  margin: 0 0 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.post-content li + li {
+  margin-top: 0.5rem;
+}
+
+.post-content blockquote {
+  margin: 0 0 1.5rem;
+  padding: 0.25rem 0 0.25rem 1rem;
+  border-left: 2px solid var(--hover);
+  color: var(--text-soft);
+}
+
+.post-content blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.post-content :not(pre) > code {
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  background: var(--surface-code-inline);
+  color: inherit;
+  font-size: 0.95em;
+}
+
+.post-content pre {
+  margin: 0 0 1.5rem;
+  padding: 1rem;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background: #353535 !important;
+  font-size: 0.9rem;
+  overflow-x: auto;
+}
+
+.post-content pre code {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
 }
 
 .italic-text {

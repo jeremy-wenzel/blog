@@ -1,16 +1,53 @@
 ---
+import BlogCard from "../components/BlogCard.astro";
 import Layout from "../layouts/Layout.astro";
-const allposts = await Astro.glob("./blog/*.md");
+import { sortMarkdownPostsByDate } from "../utils/blogMetadata";
+
+const allposts = sortMarkdownPostsByDate(await Astro.glob("./blog/*.md"));
 ---
 
-<Layout>
-  <ul>
-    {
-      allposts.map((post) => (
-        <li>
-          <a href={post.url}>{post.frontmatter.title}</a>
-        </li>
-      ))
-    }
-  </ul>
+<Layout pageTitle="Blog Archive">
+  <section class="blog-archive" data-blog-list="archive">
+    <p class="blog-archive__label">/blog</p>
+    <h1>Blog Archive</h1>
+    <p class="blog-archive__intro">
+      Notes, write-ups, and experiments collected in one place. Newest posts stay at the top.
+    </p>
+
+    <ul class="blog-card-list" data-blog-card-list="vertical">
+      {
+        allposts.map((post) => (
+          <li class="blog-card-list__item">
+            <BlogCard post={post} />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </Layout>
+
+<style>
+  .blog-archive {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .blog-archive__label {
+    margin: 0;
+    color: color-mix(in srgb, var(--link) 72%, white 28%);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .blog-archive h1,
+  .blog-archive__intro {
+    margin: 0;
+  }
+
+  .blog-archive__intro {
+    max-width: 46rem;
+    color: color-mix(in srgb, var(--text) 88%, black 12%);
+  }
+</style>
