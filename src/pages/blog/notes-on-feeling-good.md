@@ -1,6 +1,7 @@
 ---
 layout: ../../layouts/PostLayout.astro
 title: 'Notes on feeling good'
+draft: true
 ---
 
 Here is a list of things that help me feel good through out the day
