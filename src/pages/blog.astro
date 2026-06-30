@@ -3,7 +3,10 @@ import BlogCard from "../components/BlogCard.astro";
 import Layout from "../layouts/Layout.astro";
 import { sortMarkdownPostsByDate } from "../utils/blogMetadata";
 
-const allposts = sortMarkdownPostsByDate(await Astro.glob("./blog/*.md"));
+const isDraft = (post: { frontmatter?: { draft?: boolean } }) => post.frontmatter?.draft === true;
+const allposts = sortMarkdownPostsByDate(await Astro.glob("./blog/*.md")).filter((post) =>
+  import.meta.env.PROD ? !isDraft(post) : true,
+);
 ---
 
 <Layout pageTitle="Blog Archive">

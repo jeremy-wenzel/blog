@@ -3,7 +3,10 @@ import BlogCard from "../components/BlogCard.astro";
 import Layout from "../layouts/Layout.astro";
 import { sortMarkdownPostsByDate } from "../utils/blogMetadata";
 
-const latestPosts = sortMarkdownPostsByDate(await Astro.glob("./blog/*.md")).slice(0, 10);
+const isDraft = (post: { frontmatter?: { draft?: boolean } }) => post.frontmatter?.draft === true;
+const latestPosts = sortMarkdownPostsByDate(await Astro.glob("./blog/*.md"))
+  .filter((post) => (import.meta.env.PROD ? !isDraft(post) : true))
+  .slice(0, 10);
 ---
 
 <Layout>

@@ -11,7 +11,7 @@ const worktreePath = fileURLToPath(new URL("../", import.meta.url));
 const buildOutDir = join(worktreePath, ".test-builds", "blog-listing-pages");
 const blogPostsPath = join(worktreePath, "src", "pages", "blog");
 const blogPostFiles = readdirSync(blogPostsPath).filter((file) => file.endsWith(".md"));
-const totalPosts = blogPostFiles.length;
+const draftSlug = "notes-on-feeling-good";
 const noMetadataPageName = "blog-card-no-metadata-test";
 const noMetadataPagePath = join(worktreePath, "src", "pages", `${noMetadataPageName}.astro`);
 
@@ -33,6 +33,7 @@ const post = {
 let noMetadataHtml;
 let indexHtml;
 let archiveHtml;
+let draftPostHtml;
 
 try {
   rmSync(buildOutDir, { force: true, recursive: true });
@@ -44,6 +45,7 @@ try {
   noMetadataHtml = readFileSync(join(buildOutDir, noMetadataPageName, "index.html"), "utf8");
   indexHtml = readFileSync(join(buildOutDir, "index.html"), "utf8");
   archiveHtml = readFileSync(join(buildOutDir, "blog", "index.html"), "utf8");
+  draftPostHtml = readFileSync(join(buildOutDir, "blog", draftSlug, "index.html"), "utf8");
 } finally {
   rmSync(noMetadataPagePath, { force: true });
   rmSync(buildOutDir, { force: true, recursive: true });
@@ -77,6 +79,7 @@ function readMarkdownPosts() {
     return {
       frontmatter: {
         date: parseFrontmatterValue(frontmatter, "date"),
+        draft: parseFrontmatterValue(frontmatter, "draft") === "true",
         title: parseFrontmatterValue(frontmatter, "title"),
       },
       rawContent,
@@ -105,6 +108,7 @@ function extractBlogCards(source) {
 
 test("home page renders the newest 10 posts in a vertical preview list using their real routes", () => {
   const expectedPreviewPosts = sortMarkdownPostsByDate(readMarkdownPosts())
+    .filter((post) => !post.frontmatter.draft)
     .slice(0, 10)
     .map((post) => ({
       eyebrow: `cat ${post.url}`,
@@ -118,18 +122,21 @@ test("home page renders the newest 10 posts in a vertical preview list using the
   assert.match(indexHtml, /data-blog-card-list="vertical"/);
   assert.doesNotMatch(indexHtml, /row g-4/);
   assert.doesNotMatch(indexHtml, /col-12 col-md-6 col-xl-4/);
-  assert.equal(countBlogCards(indexHtml), Math.min(10, totalPosts));
+  assert.equal(countBlogCards(indexHtml), Math.min(10, expectedPreviewPosts.length));
   assert.deepEqual(actualPreviewPosts, expectedPreviewPosts);
 });
 
 test("blog archive renders the full vertical list with metadata and excerpt fallbacks", () => {
+  const expectedArchiveCount = readMarkdownPosts().filter((post) => !post.frontmatter.draft).length;
+
   assert.match(archiveHtml, /data-blog-card-list="vertical"/);
   assert.doesNotMatch(archiveHtml, /row g-4/);
   assert.doesNotMatch(archiveHtml, /col-12 col-md-6 col-xl-4/);
-  assert.equal(countBlogCards(archiveHtml), totalPosts);
+  assert.equal(countBlogCards(archiveHtml), expectedArchiveCount);
   assert.match(archiveHtml, /Jan 27, 2024/);
   assert.match(archiveHtml, /min read/);
   assert.match(archiveHtml, /While testing some functionality with AlarmKit/i);
+  assert.doesNotMatch(archiveHtml, /Notes on feeling good/i);
 
   const azureIndex = archiveHtml.indexOf("Azure Function HTTP authentication with Managed Identities");
   const alarmKitIndex = archiveHtml.indexOf("AlarmKit simulator bugs");
@@ -141,4 +148,9 @@ test("blog archive renders the full vertical list with metadata and excerpt fall
 
 test("BlogCard omits an empty metadata wrapper when no metadata is available", () => {
   assert.doesNotMatch(noMetadataHtml, /<div class="blog-card__meta"/);
+});
+
+test("draft markdown route is guarded in production output", () => {
+  assert.doesNotMatch(draftPostHtml, /Notes on feeling good/i);
+  assert.doesNotMatch(draftPostHtml, /Here is a list of things that help me feel good/i);
 });
