@@ -8,7 +8,7 @@ Here is a list of things that help me feel good through out the day
 
 ## Waking up
 
-Waking up has always been difficult for me. Many a time, the night before I am full of excitement of how the time I had available by waking up early. But then I wake up feeling groggy and unable to actually do anything. Or even worse, I would just go back to sleep, wake up later than I wanted to, and feel awful that I didn't meet my expectations of getting up early or doing the things I "wanted" to do. 
+Waking up has always been difficult for me. Many a time, the night before I am full of excitement of how the time I had available by waking up early. But then I wake up feeling groggy and unable to actually do anything. Or even worse, I would just go back to sleep, wake up later than I wanted to, and feel awful that I didn't meet my expectations of getting up early or doing the things I "wanted" to do.
 
 1. Get at least 7 hours of sleep. My body really wants 8 and I strive to achieve that whenever possible but it isn't always feasible with my busy schedule
 2. Take the dog for at least a 30 minute walk. About 15 minutes into the walk I start feeling more normal and alert so the extra 15 mintues help ensure I feel a lot better
@@ -32,8 +32,23 @@ To solve, I do the following
 * The hip issue is two fold. Sitting is causing the hip flexors to tighten up and the glutes to loosen because they are being stretched. So the solution is to stretch the hip flex by getting on one knee and leaning foward. Do this on both sides for 60-90 seconds for a couple sets really helps losen it up.
 * The next is the glutes which is using hip thrusts. Sit on the floor and do some hip thrusts, holding for like 3 seconds and doing 20 of them.
 * For the shoulders, this requires some working out. Doing a workout that targets the delts, rotator cuff, and the lower traps helps keep things in place and reduces the ache.
+* I typically walk around the office, usually a 3-4 minute lap, to get my legs and blood moving. It also provides an opportunity to grab something to drink and even use the restroom
 
-### Todo: Add topics on like 
+## Preventing headaches
+
+I love coffee. A little bit of creamer and and a tad of sugar and I can consume it handily. And I feel good while drinking it! The only catch is that I will eventually develop a headache if I am consuming for too long. I believe there is some recommendation about how much you should really have, which I believe is around 300 milligrams. I want to say this is usually around 2 large cups of coffee. Funny enough, if I drink more than 2 cups of coffee, I start to devlop headaches. Same thing with Monsters. And with Monsters, I start getting shakes because of all the sugar!
+
+Alright, so we are drinking less coffee, but then what? I find drinking plenty of water throughout the day helps tremendously. For me, that is drinking around 40 ounces of water throughout the day. I strive to drink more.
+
+## Keyboards
+
+I love keychron keyboards. I do find that they they can cause my write to get into bad positions and cause me a lot of pain. So much pain that it is legitimately hard to type anything.
+
+My fix is to use a wrist rest! Simple, right? I never really though too much about it but it does make me feel so very much better. You can even get fancy ones like walnut ones on Etsy or just use their silcone ones. I am actually surprised by how good the quality of the silcone ones are.
+
+
+
+### Todo: Add topics on like
 * working out routinely,
 * limit the amount of coffee and caffine,
 * drinking water.
