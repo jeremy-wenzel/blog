@@ -123,6 +123,12 @@ a:hover {
   margin-top: 2rem;
 }
 
+.post-content {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.75;
+  letter-spacing: normal;
+}
+
 .post-content p {
   margin: 0 0 1.5rem;
 }
@@ -153,6 +159,7 @@ a:hover {
   border-radius: 4px;
   background: var(--surface-code-inline);
   color: inherit;
+  font-family: ui-monospace, "SF Mono", "Monaco", "Courier New", monospace;
   font-size: 0.95em;
 }
 
@@ -162,6 +169,7 @@ a:hover {
   border: 1px solid #555;
   border-radius: 4px;
   background: #353535 !important;
+  font-family: ui-monospace, "SF Mono", "Monaco", "Courier New", monospace;
   font-size: 0.9rem;
   overflow-x: auto;
 }

@@ -74,8 +74,12 @@ test("blog posts render a polished reading surface structure", () => {
   assert.match(builtCss, /\.post-content p\{/);
   assert.match(builtCss, /\.post-content ul,\s*\.post-content ol\{/);
   assert.match(builtCss, /\.post-content blockquote\{/);
+  assert.match(sourceCss, /\.post-content\s*\{[\s\S]*?font-family:\s*-apple-system,[\s\S]*?line-height:\s*1\.75;[\s\S]*?letter-spacing:\s*normal;/i);
+  assert.match(builtCss, /\.post-content\{[^}]*font-family:-apple-system,[^}]*line-height:1\.75[^}]*letter-spacing:normal/i);
   assert.match(builtCss, /\.post-content :not\(pre\)>code\{/);
+  assert.match(sourceCss, /\.post-content :not\(pre\) > code\s*\{[\s\S]*?font-family:\s*ui-monospace,/i);
   assert.match(builtCss, /\.post-content pre\{/);
+  assert.match(sourceCss, /\.post-content pre\s*\{[\s\S]*?font-family:\s*ui-monospace,/i);
   assert.match(builtCss, /body\{[^}]*font-family:ui-monospace/i);
   assert.match(builtCss, /body\{[^}]*line-height:1\.6/i);
   assert.match(builtCss, /h1,h2,h3,h4,h5,h6\{[^}]*font-family:-apple-system/i);
